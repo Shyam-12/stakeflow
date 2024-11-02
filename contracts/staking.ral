@@ -1,0 +1,22 @@
+Contract StakingContract(_rewardToken: Address, _rewardRate: U256, _stakingTokenId: ByteVec) {
+    // state variables
+    let mut rewardToken = _rewardToken;
+    let mut rewardRate = _rewardRate;
+    let stakingTokenId = _stakingTokenId;
+
+    let totalStaked: U256;
+
+    // Mappings 
+    mapping[Address, U256] stakes;
+
+    // Events
+    event Staked(user: Address, amount: U256);
+    event Withdrawn(user: Address, amount: U256);
+    event RewardPaid(user: Address, amount: U256);
+
+    // stake
+    pub fn stake(amount: U256) {
+        assert!(amount > 0, "Amount should be positive");
+        stakes[callerAddress!()]
+    }
+}
